@@ -352,9 +352,9 @@ function trayCreate(json) {
     if (typeof json.trayOptions.tooltip !== "undefined") {
         elements[json.targetID].setToolTip(json.trayOptions.tooltip);
     }
-    elements[json.targetID].on('click', () => { client.write(json.targetID, consts.eventNames.trayEventClicked) })
-    elements[json.targetID].on('double-click', () => { client.write(json.targetID, consts.eventNames.trayEventDoubleClicked) })
-    elements[json.targetID].on('right-click', () => { client.write(json.targetID, consts.eventNames.trayEventRightClicked) })
+    elements[json.targetID].on('click', () => { client.write(json.targetID, consts.eventNames.trayEventClicked, json.bounds) })
+    elements[json.targetID].on('double-click', () => { client.write(json.targetID, consts.eventNames.trayEventDoubleClicked, json.bounds) })
+    elements[json.targetID].on('right-click', () => { client.write(json.targetID, consts.eventNames.trayEventRightClicked, json.bounds) })
     client.write(json.targetID, consts.eventNames.trayEventCreated)
 }
 
